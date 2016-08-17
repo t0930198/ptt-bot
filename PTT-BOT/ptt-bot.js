@@ -52,7 +52,8 @@
 	const BoardList = 4; //【看板列表】
 	const ArticleList = 5; //【文章列表】
 	const Article = 6; //【文章內】
-	
+	const UserList = 7;
+	const UserInfo = 8;
 	/**
 	  * Working State serial number
 	  */
@@ -61,6 +62,8 @@
 	const State_EnteringBoard = 2;
 	const State_CollectingArticle = 3;
 	const State_ReturningtoMain = 4;
+	const State_EnterUserList = 5;
+	const State_ReadingUserInfo = 6;
 	
 	/**
 	  * mimic null screen in BBS
@@ -204,7 +207,10 @@
 					clearSceenBuf();
 					ReturningMainDataHandler(newdataStr);
 					break;
-				
+				case State_EnterUserList:
+					clearSceenBuf();
+					break;
+
 				default :
 					console.log('working state is undifined.');
 		
@@ -253,7 +259,20 @@
 		
 	}
 
-	
+	function toUserList(callback){
+		// addCallbackWithNullCommand(function(){ /* 在傳送指令前, 先將ptt-bot的狀態改變 */
+		// 	g_workingState = State_EnterUserList;
+		// 	clearScreenBufRow();//clean old data, since g_screenBufRow is not used until nextPttComand. 
+		// });
+		addCommands('T\rU\r',callback);
+	}
+
+	function getUserInfo(callback){
+		addCommands('q',callback);
+		addCommands(Enter,null);
+		addCommands(Down,null);
+	}
+
 	/**
 	 * Goes into target article ONLY WHEN THE BOT IS IN CERTAIN BOARD.
 	 * param	string	NumStr			the serial number of the target article
@@ -427,7 +446,9 @@
 	}
 	*/
 
-
+	exports.addCommands = addCommands;
+	exports.getUserInfo = getUserInfo;
+	exports.sendCommand = sendCommand;
 	/*****
 		export public function
 	*****/
@@ -441,6 +462,7 @@
 	exports.toMain = toMain;
 	exports.toArticle = toArticle;
 	exports.toBoard = toBoard;
+	exports.toUserList = toUserList;
 	exports.toArticlesList = toBoard;
 	//exports.toFavBoard = toFavBoard;
 	//exports.toHotBoard = toHotBoard;
