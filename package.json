@@ -1,0 +1,29 @@
+{
+  "name": "ptt-bot",
+  "version": "1.0.0",
+  "description": "PTT-BOT =====================",
+  "main": "mybot.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t0930198/ptt-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/t0930198/ptt-bot/issues"
+  },
+  "homepage": "https://github.com/t0930198/ptt-bot#readme",
+  "dependencies": {
+    "iconv-lite": "^0.4.13",
+    "mongodb": "^2.2.5",
+    "mongoose": "^4.5.8",
+    "mysql": "^2.11.1",
+    "string": "^3.3.1"
+  }
+}
