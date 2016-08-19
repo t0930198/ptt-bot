@@ -1,6 +1,7 @@
 	var myBot = require('./PTT-BOT/ptt-bot');
 	var fs = require('fs');
 	var iconv = require('iconv-lite'); 
+	var account = require('./account');
 
 	/*  與Ptt-sever建立連線  */
 	myBot.login('parsertest0','test0', function(){ //請自行輸入帳號密碼

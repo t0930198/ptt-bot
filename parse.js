@@ -4,29 +4,35 @@ var myBot = require('./PTT-BOT/ptt-bot');
 var fs = require('fs');
 var iconv = require('iconv-lite');
 var User = require('./model/userInfo').User;
+var Account = require('./account');
+
 
 var numberOfUser = 0;
 
-mongoose.connect('mongodb://localhost:27017/PTT');
+mongoose.connect('mongodb://140.118.126.240:27017/PTT');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-	log('connect to database');
-	myBot.login('parsertest0','test0',function(){
-		console.log('登入');
+	account = Account(process.argv[2]);
+	myBot.login(account.ID,account.password,function(){
+		console.log('成功登入');
 	})
 
 
 	myBot.toUserList(function(){
 		console.log('UserList');
-		numberOfUser = parseInt(myBot.escapeANSI(myBot.getScreen().split('\r')[2].split(" ")[4].split(":")[1]))
+		numberOfUser = parseInt(myBot.escapeANSI(myBot.getScreen().split('\r')[2].split(" ")[4].split(":")[1]))	
+		parseUserInfo(parseInt(numberOfUser));
+
 	})
 
-	parseUserInfo(5);
+
 });
 
 var parseUserInfo = function(num){
+	console.log(num)
 	let infos = Array(num).fill(0);
+	var count = 0;
 	infos.forEach(function(){
 		myBot.getUserInfo(function(){
 			let userInfo = myBot.escapeANSI(myBot.getScreen()).split("\r");
@@ -38,6 +44,7 @@ var parseUserInfo = function(num){
 				if(index<6&&index>1)
 					return val 
 			});
+			console.log(count);
 			new User({
 				ID: info[0].split(" ")[0].substring(7),
 				news:info[2].split(" ")[0].substring(7),
@@ -47,6 +54,10 @@ var parseUserInfo = function(num){
 				if(err) console.error(err);
 				console.log(user.ID);
 			})
+			count+=1;
+			if(count == num+1)
+				db.close();
+
 		})
 	})
 }

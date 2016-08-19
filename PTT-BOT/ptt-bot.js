@@ -41,6 +41,7 @@
 	const Down = '\u001b[B';
 	const CtrlL = '\u000c';
 	const CtrlZ = '\u001a';
+	const Tab = '\u0009';
 
 	/**
 	  * Screens serial number
@@ -238,6 +239,7 @@
 		addCommands(CtrlL,function(){
 			/* 重傳內容, 讓bot根據不同的內容作不同的回應 */
 		});
+		callback()
 		
 	}
 	
@@ -265,12 +267,14 @@
 		// 	clearScreenBufRow();//clean old data, since g_screenBufRow is not used until nextPttComand. 
 		// });
 		addCommands('T\rU\r',callback);
+
 	}
 
 	function getUserInfo(callback){
 		addCommands('q',callback);
 		addCommands(Enter,null);
 		addCommands(Down,null);
+
 	}
 
 	/**
