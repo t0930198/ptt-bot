@@ -44,16 +44,28 @@ var parseUserInfo = function(num){
 				if(index<6&&index>1)
 					return val 
 			});
-			console.log(count);
+			var id,news,time,ip;
+			try{
+				id = info[0].split(" ")[0].substring(7);
+				news = info[2].split(" ")[0].substring(7);
+				time = info[3].split(" ")[0].substring(7)+" "+info[3].split(" ")[1];
+				ip = info[3].split(" ")[7].substring(6);
+			}catch(err){
+				console.error(err);
+				console.error(userInfo);
+				return;
+			}	
 			new User({
-				ID: info[0].split(" ")[0].substring(7),
-				news:info[2].split(" ")[0].substring(7),
-				lastTime:info[3].split(" ")[0].substring(7)+" "+info[3].split(" ")[1],
-				lastIP:info[3].split(" ")[7].substring(6)
+				ID: id,
+				news:news,
+				lastTime:time,
+				lastIP:ip,
+				time:new Date()
 			}).save((err,user)=>{
 				if(err) console.error(err);
 				console.log(user.ID);
 			})
+			
 			count+=1;
 			if(count == num+1)
 				db.close();

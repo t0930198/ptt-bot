@@ -3,7 +3,8 @@ var UserSchema = mongoose.Schema({
     ID:String,
     news:String,
     lastTime:Date,
-    lastIP:String
+    lastIP:String,
+    time:Date
 });
 var User = mongoose.model('user',UserSchema);
 module.exports = { User };
