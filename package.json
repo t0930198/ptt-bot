@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "zero":"node parse.js 0",
-    "one":"node parse.js 1",
+    "zero": "node parse.js 0",
+    "one": "node parse.js 1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +26,18 @@
     "mongodb": "^2.2.5",
     "mongoose": "^4.5.8",
     "mysql": "^2.11.1",
-    "string": "^3.3.1"
+    "semantic-ui": "^2.2.4",
+    "string": "^3.3.1",
+    "express": "^4.13.3",
+    "serve-favicon": "^2.3.0",
+    "morgan": "^1.6.1",
+    "cookie-parser": "^1.3.3",
+    "body-parser": "^1.13.3",
+    "jade": "^1.11.0",
+    "ejs": "^2.3.1",
+    "swig": "^1.4.2",
+    "express-handlebars": "^3.0.0",
+    "marko": "^3.4.2",
+    "nunjucks": "^2.0.0"
   }
 }
