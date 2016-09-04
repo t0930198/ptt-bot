@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "start": "node ./bin/www",
     "zero": "node parse.js 0",
     "one": "node parse.js 1",
     "test": "echo \"Error: no test specified\" && exit 1"
