@@ -3,11 +3,13 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
-    title= title
-    block css
-      link(rel='stylesheet', href='/css/style.css')
-    block js
-      if ENV_DEVELOPMENT
-        script(src='http://localhost:35729/livereload.js')
+    title IP
+    link(rel='stylesheet', type='text/css', href='components/semantic/dist/semantic.min.css')
+    script(src='components/semantic/dist/semantic.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js')
+    script(src='components/jquery/dist/jquery.min.js')
+    script(src='js/main.js')
+    script(src='components/vue/dist/vue.min.js')
+    link(rel='stylesheet', type='text/css', href='css/style.css')
   body
     block content

@@ -5,22 +5,24 @@
         <title>IP</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-        <script src="semantic/dist/semantic.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="public/components/semantic/dist/semantic.min.css">
+        <script src="public/components/semantic/dist/semantic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js"></script>
+        <script src="public/components/jquery/dist/jquery.min.js"></script>
+        <script src="public/js/main.js"></script>
     </head>
 
     <body>
         <div class="container" style="padding:3%;">
             <div class="ui left action input">
-                <button class="ui teal labeled icon button">
+                <button onclick="getList()" class="ui teal labeled icon button">
                     <i class="user icon"></i>
                     Checkout
                 </button>
-                <input type="text" value="">
+                <input id="id" type="text" value="">
             </div>
         </div>
-        
+
     </body>
 
     </html>>

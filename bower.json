@@ -4,6 +4,13 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "components"
-  ]
+    "components",
+    "semantic-ui"
+  ],
+  "dependencies": {
+    "semantic": "semantic-ui#^2.2.4",
+    "https": "^3.46.1",
+    "react": "^15.3.1",
+    "vue": "^1.0.26"
+  }
 }

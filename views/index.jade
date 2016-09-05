@@ -2,4 +2,18 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  .container(style='padding:3%;')
+      .ui.left.action.input
+          button.ui.teal.labeled.icon.button(onclick='getList()')
+              i.user.icon
+              |                     Checkout
+          input#id(type='text', value='')
+      .ui.grid(style="width:100%; margin-top:2rem;")
+          .eight.wide.column
+              h1.ui.header
+                  | self record
+              .list.record.ui.bulleted
+          .eight.wide.column
+              h1.ui.header
+                  | other
+              .list.related.ui.bulleted
